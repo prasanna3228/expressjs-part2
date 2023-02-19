@@ -27,7 +27,7 @@ initializeDBAndServer();
 
 app.get("/books", async (request, response) => {
   const getBooksQuery = `
-    select * from book order by book_id;
+    select * from book  limit 1;
     `;
   const booksArray = await db.all(getBooksQuery);
   response.send(booksArray);
